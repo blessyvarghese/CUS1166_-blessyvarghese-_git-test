@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Course Registration{% endblock title %}
+
+{% block body %}
+<h1>Course Registration - Register a Student</h1>
+<h2>(ID:{{ course.id }}) {{ course.course_number }} - {{ course.course_title }}</h2>
+
+<ul>
+    {% for student in course.students %}
+    <li>(ID:{{student.id}}) {{student.name}}, Grade: {{student.grade}}</li>
+    {% endfor %}
+</ul>
+
+<form action="{{ url_for('register_student', course_id=course.id) }}" method="POST">
+    <label>Register a new student for this course: </label>
+    <input type="text" name="id" placeholder="id">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="grade" placeholder="grade">
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

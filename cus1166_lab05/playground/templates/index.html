@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}Course Listing{% endblock title %}
+
+{% block body %}
+<h1>Course Listing</h1>
+<ul>
+    {% for course in courses %}
+    <li><a href="{{ url_for('register_student', course_id=course.id) }}">(ID:{{ course.id }}) {{ course.course_number }} - {{ course.course_title }}</a></li>
+    {% endfor %}
+</ul>
+<form action="{{ url_for('add_course') }}" method="POST">
+    <label>Add a new course: </label>
+    <input type="text" name="id" placeholder="id">
+    <input type="text" name="course_number" placeholder="course number">
+    <input type="text" name="course_title" placeholder="course_title">
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
