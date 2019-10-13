@@ -6,7 +6,7 @@
 <h1>Course Listing</h1>
 <ul>
     {% for course in courses %}
-    <li><a href="{{ url_for('register_student', course_id=course.id) }}">(ID:{{ course.id }}) {{ course.course_number }} - {{ course.course_title }}</a></li>
+    <li>(ID:{{ course.id }}) {{ course.course_number }} - {{ course.course_title }}</a></li>
     {% endfor %}
 </ul>
 <form action="{{ url_for('add_course') }}" method="POST">

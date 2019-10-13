@@ -37,12 +37,7 @@ def register_student(course_id):
         if(RegisteredStudent.query.get(id)):
             student = RegisteredStudent.query.get(id)
             course.students.append(student)
-        #if id is not of any current student, new student gets created and a course is matched to it
-        else:
-            student = RegisteredStudent(id=id, name=name, grade=grade)
-            course.students.append(student)
-            db.session.add(student)
-            db.session.commit()
+        
         return render_template('course_details.html', course=course)
 
 if __name__ == '__main__':
