@@ -1,6 +1,7 @@
 ## Imported from Sarah Guthrie's Feature class
 from flask import Flask, render_template
 from forms import UserSignUpForm, LoginForm, AddCarForm
+DEBUG = True
 app = Flask(__name__)
 
 #app.config['SECRET_KEY'] = ''
@@ -27,16 +28,17 @@ Car =[
 def home():
     return render_template('index.html', Car=Car)
 
-@app.route("/userlist")
-def home():
-    return render_template('user.html', User=User)
+@app.route("/Login")
+def Login():
+    form = LoginForm()
+    return render_template('login.html', User=User)
 
 @app.route("/register")
 def register():
     form = RegistrationForm()
     return render_template('register.html', title='Register', form=form)
 
-@app.route("/add-car")
+@app.route("/add-car", methods =['GET','POST'])
 def addCar():
     form = AddCarForm()
     return render_template('addCar.html', title='Add A Car', form=form)

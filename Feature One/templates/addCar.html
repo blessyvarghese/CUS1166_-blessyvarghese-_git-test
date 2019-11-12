@@ -1,0 +1,22 @@
+
+{% block content %}
+  <div class= "content-section">
+    <form method ="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class= "form-group">
+        <legend class> Add Car </legend>
+        <dir class= "form-group">
+            {{ form.user_Name.label(class="form-control-label") }}
+            {{ form.user_Name(class="form-control form-control-lg") }}
+        </dir>
+        <dir class= "form-group">
+            {{ form.make.label(class="form-control-label") }}
+            {{ form.make(class="form-control form-control-lg") }}
+        </dir>
+      </fieldset>
+      <div class ="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+    </form>
+  </div>
+
+{% endblock content %}
